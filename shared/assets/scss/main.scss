@@ -17,6 +17,18 @@
     --border-color: #dee2e6;
 }
 
+/* Light Theme Colors */
+[data-bs-theme="light"] {
+    --light-bg: #f4f6f9;
+    --dark-bg: #343a40;
+    --text-color: #212529;
+    --border-color: #dee2e6;
+
+    /* Override AdminLTE light colors */
+    --bs-body-bg: #f4f6f9;
+    --bs-body-color: #212529;
+}
+
 /* Dark Theme Colors */
 [data-bs-theme="dark"] {
     --light-bg: #2c3034;
