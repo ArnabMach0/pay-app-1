@@ -3,7 +3,7 @@
 Minimal build system test for header/footer partials with Gulp. Focused on frontend build first. Laravel setup & integration later.
 
 ## Quick Start
-Even this is POC, it's still for my client's demo
+Even this is POC, it's still for a demo
 
 
 ### 1. Install Dependencies
@@ -83,7 +83,7 @@ npm test
 ## File Structure
 
 ```
-mobile-app-poc/
+mobile-app-v1/
 ├── shared/               # Source files (edit these)
 │   ├── partials/         # Reusable components
 │   ├── pages/            # Full page templates
