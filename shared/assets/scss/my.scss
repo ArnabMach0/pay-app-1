@@ -1,0 +1,536 @@
+
+
+:root {
+    --bp-blue: #00aeef;
+    --bp-green: #8bc53f;
+    --bp-text: #111;
+    --bp-grey-dim: rgba(0, 0, 0, 0.55);
+    --bp-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+    --bp-radius-outer: 28px;
+    --bp-radius-inner: 24px;
+    --bp-card-radius: 22px;
+}
+
+/* Page */
+.bp-page {
+    background: #fff;
+    color: var(--bp-text);
+}
+
+/* prevent fixed bottom bar from covering content */
+.bp-page {
+    padding-bottom: 10px;
+}
+
+/* Narrow centered canvas like screenshots */
+.bp-wrap {
+    max-width: 520px;
+    padding: 22px 18px 26px;
+}
+
+/* Common shadow */
+.shadow {
+    box-shadow: var(--bp-shadow) !important;
+}
+
+/* Serif for big “1 Jam / 1 Hari / RM 0.50” look */
+.bp-big-serif,
+.bp-qty-main,
+.bp-sum-amount {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ===== Top logo card ===== */
+.bp-top-card {
+    background: #fff;
+    border-radius: var(--bp-radius-outer);
+    padding: 22px 18px;
+}
+
+.bp-top-inner {
+    padding: 10px 10px 6px;
+}
+
+.bp-council-logo {
+    width: 170px;
+    height: 170px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.bp-council-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 800;
+    font-size: 26px;
+    margin-top: 2px;
+}
+
+.bp-council-sub {
+    margin-top: 6px;
+    color: #bdbdbd;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+/* ===== Blue panel ===== */
+.bp-blue-panel {
+    background: var(--bp-blue);
+    border-radius: var(--bp-radius-outer);
+    padding: 14px;
+    margin-top: 22px;
+}
+
+.bp-blue-header {
+    background: #fff;
+    border-radius: var(--bp-radius-inner);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 3px solid #1b6bd6;
+}
+
+.bp-picon {
+    position: relative;
+    width: 62px;
+    height: 62px;
+    flex: 0 0 62px;
+    display: grid;
+    place-items: center;
+}
+
+.bp-picon-box {
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+    background: #1b6bd6;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-weight: 900;
+    font-size: 30px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.bp-picon-car {
+    position: absolute;
+    bottom: 8px;
+    right: 9px;
+    color: #fff;
+    font-size: 16px;
+    opacity: 0.95;
+}
+
+.bp-picon--sm {
+    transform: scale(0.92);
+}
+
+.bp-pay-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.05;
+}
+
+.bp-pay-sub {
+    margin-top: 4px;
+    color: #555;
+    font-weight: 700;
+}
+
+/* White cards inside blue panel */
+.bp-white-card {
+    background: #fff;
+    border-radius: var(--bp-radius-inner);
+    margin-top: 12px;
+    padding: 18px 16px;
+}
+
+.bp-white-card-lg {
+    padding: 22px 16px;
+}
+
+/* Quantity row */
+.bp-qty-row {
+    display: grid;
+    grid-template-columns: 78px 1fr 78px;
+    gap: 14px;
+    align-items: center;
+}
+
+.bp-qty-btn {
+    height: 86px;
+    border-radius: 16px;
+    border: 0;
+    background: var(--bp-green);
+    color: #fff;
+    font-weight: 1000;
+    font-size: 40px;
+    line-height: 1;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+.bp-qty-center {
+    text-align: center;
+}
+
+.bp-qty-main {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.bp-qty-hint {
+    margin-top: 6px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    color: #444;
+}
+
+/* Big “1 Hari” */
+.bp-big-serif {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.05;
+}
+
+/* ===== Green pass panel ===== */
+.bp-green-panel {
+    background: var(--bp-green);
+    border-radius: var(--bp-radius-outer);
+    padding: 14px;
+    margin-top: 18px;
+}
+
+.bp-green-header {
+    background: #fff;
+    border-radius: var(--bp-radius-inner);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.bp-pass-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.bp-pass-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 14px;
+}
+
+.bp-pass-card {
+    background: #fff;
+    border-radius: var(--bp-radius-inner);
+    border: 0;
+    padding: 18px 10px;
+    text-align: center;
+    min-height: 150px;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
+}
+
+.bp-pass-card.is-selected {
+    outline: 3px solid rgba(0, 174, 239, 0.65);
+    outline-offset: -3px;
+}
+
+.bp-pass-card-wide {
+    grid-column: 1 / -1;
+    min-height: 120px;
+}
+
+.bp-pass-big {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1.05;
+}
+
+.bp-pass-price {
+    margin-top: 6px;
+    font-weight: 800;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ===== Divider line ===== */
+.bp-line {
+    height: 1px;
+    background: #cfcfcf;
+    margin: 30px 0;
+}
+
+/* ===== Form ===== */
+.bp-form {
+    padding: 6px 6px 0;
+}
+
+.bp-label {
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.bp-input {
+    border: 2px solid #2b2b2b;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-weight: 700;
+}
+
+.bp-plate-row {
+    display: grid;
+    grid-template-columns: 1fr 64px;
+    gap: 14px;
+    align-items: center;
+}
+
+.bp-plate-add {
+    height: 58px;
+    border-radius: 12px;
+    border: 2px solid var(--bp-green);
+    background: #fff;
+    color: var(--bp-green);
+    font-size: 22px;
+    font-weight: 900;
+}
+
+/* ===== Summary ===== */
+.bp-summary {
+    padding: 18px 6px 0;
+}
+
+.bp-end-at {
+    color: #e10000;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 900;
+    font-size: 24px;
+    margin-top: 6px;
+}
+
+.bp-summary-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.bp-sum-label {
+    font-weight: 800;
+    color: #666;
+    font-size: 22px;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.bp-sum-amount {
+    font-size: 62px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.bp-next {
+    background: var(--bp-green);
+    color: #fff;
+    border: 0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-weight: 900;
+    font-size: 18px;
+    min-width: 150px;
+}
+
+.bp-disclaimer {
+    margin-top: 18px;
+    color: #e10000;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+/* ===== Bottom bar ===== */
+.bp-bottom {
+    margin-top: 45px;
+    border-radius: var(--bp-radius-outer);
+    background: #fff;
+    padding: 18px 16px 26px;
+    position: relative;
+}
+
+.bp-bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--bp-green);
+    font-weight: 900;
+    font-size: 20px;
+    user-select: none;
+}
+
+.bp-bottom-accent {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 52%;
+    height: 3px;
+    background: var(--bp-green);
+    border-radius: 999px;
+}
+
+/* ===== Offcanvas styling (screenshot #4) ===== */
+.bp-offcanvas {
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    overflow: hidden;
+    height: 78vh;
+}
+
+/* Dim background like screenshot */
+.offcanvas-backdrop.show {
+    opacity: 1 !important;
+    background: var(--bp-grey-dim) !important;
+}
+
+.bp-sheet-top {
+    background: #fff;
+    padding: 10px 16px 12px;
+}
+
+.bp-sheet-accent {
+    width: 52%;
+    height: 3px;
+    margin: 2px auto 10px;
+    background: var(--bp-green);
+    border-radius: 999px;
+}
+
+.bp-sheet-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 0 6px;
+}
+
+.bp-sheet-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--bp-green);
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.bp-sheet-handle {
+    width: 62%;
+    height: 6px;
+    background: #bfc6cf;
+    border-radius: 999px;
+}
+
+/* Grey area body */
+.bp-sheet-body {
+    background: #6b6b6b;
+    height: 100%;
+    padding: 18px 18px 26px;
+}
+
+/* Rate card */
+.bp-rate-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    max-width: 420px;
+    margin: 0 auto;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+}
+
+.bp-rate-title {
+    background: var(--bp-green);
+    color: #fff;
+    text-align: center;
+    font-weight: 900;
+    padding: 12px 10px;
+    font-size: 18px;
+}
+
+.bp-rate-table {
+    padding: 0;
+}
+
+.bp-rate-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 14px 16px;
+    border-top: 1px solid #e7e7e7;
+    font-weight: 700;
+    color: #5b5b5b;
+}
+
+.bp-rate-row>div:first-child {
+    text-align: center;
+}
+
+.bp-rate-row>div:last-child {
+    text-align: center;
+}
+
+.bp-rate-row-last {
+    padding: 18px 16px;
+}
+
+/* Links + powered by */
+.bp-sheet-links {
+    margin-top: 18px;
+    text-align: center;
+    display: grid;
+    gap: 10px;
+}
+
+.bp-link {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 800;
+}
+
+.bp-powered {
+    margin-top: 18px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+}
+
+.bp-malbase {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+}
+
+.bp-malbase-p {
+    width: 28px;
+    height: 22px;
+    background: #1b6bd6;
+    color: #fff;
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+}
+
+.bp-malbase-text {
+    font-weight: 900;
+    color: #0d4fb3;
+    font-size: 22px;
+    font-family: Georgia, "Times New Roman", serif;
+}
