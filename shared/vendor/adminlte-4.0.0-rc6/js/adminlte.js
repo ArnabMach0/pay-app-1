@@ -7,10 +7,10 @@
   typeof exports === "object" && typeof module !== "undefined"
     ? factory(exports)
     : typeof define === "function" && define.amd
-    ? define(["exports"], factory)
-    : ((global =
-        typeof globalThis !== "undefined" ? globalThis : global || self),
-      factory((global.adminlte = {})));
+      ? define(["exports"], factory)
+      : ((global =
+          typeof globalThis !== "undefined" ? globalThis : global || self),
+        factory((global.adminlte = {})));
 })(this, function (exports) {
   "use strict";
 
@@ -186,7 +186,7 @@
         this._parent.classList.add(CLASS_NAME_COLLAPSING);
         // Only target direct children to avoid affecting nested cards
         const elm = this._parent?.querySelectorAll(
-          `:scope > ${SELECTOR_CARD_BODY}, :scope > ${SELECTOR_CARD_FOOTER}`
+          `:scope > ${SELECTOR_CARD_BODY}, :scope > ${SELECTOR_CARD_FOOTER}`,
         );
         elm.forEach((el) => {
           if (el instanceof HTMLElement) {
@@ -208,7 +208,7 @@
         this._parent.classList.add(CLASS_NAME_EXPANDING);
         // Only target direct children to avoid affecting nested cards
         const elm = this._parent?.querySelectorAll(
-          `:scope > ${SELECTOR_CARD_BODY}, :scope > ${SELECTOR_CARD_FOOTER}`
+          `:scope > ${SELECTOR_CARD_BODY}, :scope > ${SELECTOR_CARD_FOOTER}`,
         );
         elm.forEach((el) => {
           if (el instanceof HTMLElement) {
@@ -219,7 +219,7 @@
           if (this._parent) {
             this._parent.classList.remove(
               CLASS_NAME_COLLAPSED,
-              CLASS_NAME_EXPANDING
+              CLASS_NAME_EXPANDING,
             );
           }
         }, this._config.animationSpeed);
@@ -367,13 +367,13 @@
       const event = new Event(EVENT_EXPANDED$1);
       if (this._config.accordion) {
         const openMenuList = this._element.parentElement?.querySelectorAll(
-          `${SELECTOR_NAV_ITEM$1}.${CLASS_NAME_MENU_OPEN$1}`
+          `${SELECTOR_NAV_ITEM$1}.${CLASS_NAME_MENU_OPEN$1}`,
         );
         openMenuList?.forEach((openMenu) => {
           if (openMenu !== this._element.parentElement) {
             openMenu.classList.remove(CLASS_NAME_MENU_OPEN$1);
             const childElement = openMenu?.querySelector(
-              SELECTOR_TREEVIEW_MENU
+              SELECTOR_TREEVIEW_MENU,
             );
             if (childElement) {
               slideUp(childElement, this._config.animationSpeed);
@@ -412,7 +412,7 @@
    */
   onDOMContentLoaded(() => {
     const openMenuItems = document.querySelectorAll(
-      `${SELECTOR_NAV_ITEM$1}.${CLASS_NAME_MENU_OPEN$1}`
+      `${SELECTOR_NAV_ITEM$1}.${CLASS_NAME_MENU_OPEN$1}`,
     );
     openMenuItems.forEach((menuItem) => {
       const childElement = menuItem.querySelector(SELECTOR_TREEVIEW_MENU);
@@ -429,7 +429,7 @@
         const targetItem = target.closest(SELECTOR_NAV_ITEM$1);
         const targetLink = target.closest(SELECTOR_NAV_LINK);
         const targetTreeviewMenu = targetItem?.querySelector(
-          SELECTOR_TREEVIEW_MENU
+          SELECTOR_TREEVIEW_MENU,
         );
         const lteToggleElement = event.currentTarget;
         // Avoid creating Treeview instances on non menu elements
@@ -683,7 +683,7 @@
         document.querySelector(SELECTOR_SIDEBAR_EXPAND)?.classList ?? [];
       const sidebarExpand =
         Array.from(sidebarExpandList).find((className) =>
-          className.startsWith(CLASS_NAME_SIDEBAR_EXPAND)
+          className.startsWith(CLASS_NAME_SIDEBAR_EXPAND),
         ) ?? "";
       const sidebar = document.getElementsByClassName(sidebarExpand)[0];
       const sidebarContent = globalThis
@@ -696,7 +696,7 @@
       // FIXED: Don't auto-collapse on mobile if sidebar is currently open
       // This prevents resize events (triggered by scrolling) from closing the sidebar
       const isCurrentlyOpen = document.body.classList.contains(
-        CLASS_NAME_SIDEBAR_OPEN
+        CLASS_NAME_SIDEBAR_OPEN,
       );
       if (window.innerWidth <= this._config.sidebarBreakpoint) {
         // Only collapse if not currently open (prevents scroll-triggered closes)
@@ -739,7 +739,7 @@
       }
       try {
         const state = document.body.classList.contains(
-          CLASS_NAME_SIDEBAR_COLLAPSE
+          CLASS_NAME_SIDEBAR_COLLAPSE,
         )
           ? CLASS_NAME_SIDEBAR_COLLAPSE
           : CLASS_NAME_SIDEBAR_OPEN;
@@ -808,14 +808,14 @@
       () => {
         overlayTouchMoved = false;
       },
-      { passive: true }
+      { passive: true },
     );
     sidebarOverlay.addEventListener(
       "touchmove",
       () => {
         overlayTouchMoved = true;
       },
-      { passive: true }
+      { passive: true },
     );
     sidebarOverlay.addEventListener(
       "touchend",
@@ -828,7 +828,7 @@
         }
         overlayTouchMoved = false;
       },
-      { passive: false }
+      { passive: false },
     );
     sidebarOverlay.addEventListener("click", (event) => {
       event.preventDefault();
@@ -930,7 +930,7 @@
         main.setAttribute("tabindex", "-1");
       }
       const nav = document.querySelector(
-        '#navigation, nav, [role="navigation"]'
+        '#navigation, nav, [role="navigation"]',
       );
       if (nav && !nav.id) {
         nav.id = "navigation";
@@ -986,13 +986,13 @@
       const activeDropdown = document.querySelector(".dropdown-menu.show");
       if (activeModal) {
         const closeButton = activeModal.querySelector(
-          '[data-bs-dismiss="modal"]'
+          '[data-bs-dismiss="modal"]',
         );
         closeButton?.click();
         event.preventDefault();
       } else if (activeDropdown) {
         const toggleButton = document.querySelector(
-          '[data-bs-toggle="dropdown"][aria-expanded="true"]'
+          '[data-bs-toggle="dropdown"][aria-expanded="true"]',
         );
         toggleButton?.click();
         event.preventDefault();
@@ -1036,7 +1036,7 @@
       const menuItems = Array.from(
         currentElement
           .closest(".nav, .navbar-nav, .dropdown-menu")
-          ?.querySelectorAll("a, button") || []
+          ?.querySelectorAll("a, button") || [],
       );
       const currentIndex = menuItems.indexOf(currentElement);
       let nextIndex;
@@ -1071,7 +1071,7 @@
     // WCAG 2.3.3: Animation from Interactions
     respectReducedMotion() {
       const prefersReducedMotion = globalThis.matchMedia(
-        "(prefers-reduced-motion: reduce)"
+        "(prefers-reduced-motion: reduce)",
       ).matches;
       if (prefersReducedMotion) {
         document.body.classList.add("reduce-motion");
@@ -1100,7 +1100,7 @@
               if (element.matches(".alert-danger, .invalid-feedback, .error")) {
                 this.announce(
                   element.textContent || "Error occurred",
-                  "assertive"
+                  "assertive",
                 );
               }
               // Check for success messages
@@ -1198,7 +1198,7 @@
         `Error in ${input.labels?.[0]?.textContent || input.name}: ${
           input.validationMessage
         }`,
-        "assertive"
+        "assertive",
       );
     }
     // Modal focus management
@@ -1206,7 +1206,7 @@
       document.addEventListener("shown.bs.modal", (event) => {
         const modal = event.target;
         const focusableElements = modal.querySelectorAll(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
         );
         if (focusableElements.length > 0) {
           focusableElements[0].focus();
@@ -1259,7 +1259,7 @@
     }
     trapFocus(container) {
       const focusableElements = container.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
       );
       const focusableArray = Array.from(focusableElements);
       const firstElement = focusableArray[0];
@@ -1299,7 +1299,7 @@
       });
       // Add search landmark
       const searchForm = document.querySelector(
-        'form[role="search"], .navbar-search'
+        'form[role="search"], .navbar-search',
       );
       if (searchForm && !searchForm.hasAttribute("role")) {
         searchForm.setAttribute("role", "search");

@@ -1,0 +1,5 @@
+// feather
+
+(function () {
+  feather.replace();
+})();
