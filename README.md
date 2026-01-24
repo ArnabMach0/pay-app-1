@@ -1,9 +1,28 @@
-# Mobile Pay-App - Proof of Concept
+# Mobile Pay-App v1 - Build System POC
 
 Minimal build system test for header/footer partials with Gulp. Focused on frontend build first. Laravel setup & integration later.
 
-## Quick Start
-Even this is POC, it's still for a demo
+## Quick Notes
+
+Even this is at MVP stage, it's still a functional build system using Gulp 4, SCSS, and BrowserSync. The goal is to validate the concept of reusable partials and a smooth build process before expanding further.
+
+## Getting Started
+
+# Architecture Overview: 
+
+1. Frontend: static Bootstrap 5 utilising HTML/CSS/JS using partials '@@include' syntax
+2. Backend: Laravel Blade templates with asset path conversion
+
+# Deployment Targets:
+Frontend : Netlify, Vercel, Surge, GitHub Pages, AWS Amplify and Render
+Backend : Render, Railway, Heroku, DigitalOcean App Platform, and Google Cloud Run
+Cloud Hosting : Hostinger Cloud Hosting
+Local Development : XAMPP / Laragon
+Database : MySQL / MariaDB
+Storage : Local Storage / Cloud Storage = Google Cloud Storage & Google Drive API
+
+
+## Prerequisites
 
 
 ### 1. Install Dependencies
@@ -37,28 +56,28 @@ npm test
 
 ## Testing Checklist
 
-### ✅ Frontend Build Test
+### Frontend Build Test
 
 1. Run `npm run build`
 2. Open `frontend/dist/index.html` in browser
 3. Verify header and footer appear
 4. Check browser console for "App initialized"
 
-### ✅ Laravel Build Test
+### Laravel Build Test
 
 1. Run `npm run build:laravel`
 2. Open `laravel/resources/views/index.blade.php`
 3. Verify it contains `@include` (not `@@include`)
 4. Verify asset paths use `{{ asset() }}`
 
-### ✅ Watch Mode Test
+### Watch Mode Test
 
 1. Run `npm run dev`
 2. Edit `shared/partials/_header.html`
 3. Save file
 4. Browser should auto-reload
 
-### ✅ Error Handling Test
+### Error Handling Test
 
 1. Run `npm run dev`
 2. Add syntax error to `shared/assets/scss/main.scss`
@@ -69,16 +88,16 @@ npm test
 
 ## What's Being Tested
 
-- ✅ Partial includes (`@@include`)
-- ✅ SCSS compilation
-- ✅ CSS autoprefixing
-- ✅ CSS minification
-- ✅ JavaScript minification
-- ✅ Source maps generation
-- ✅ Live reload (BrowserSync)
-- ✅ Error handling (no crash on errors)
-- ✅ Laravel Blade conversion
-- ✅ Asset path conversion
+- Partial includes (`@@include`)
+- SCSS compilation
+- CSS autoprefixing
+- CSS minification
+- JavaScript minification
+- Source maps generation
+- Live reload (BrowserSync)
+- Error handling (no crash on errors)
+- Laravel Blade conversion
+- Asset path conversion
 
 ## File Structure
 
@@ -106,8 +125,22 @@ mobile-app-v1/
 ### Port 3000 Already in Use
 
 ```bash
-# Edit gulpfile.js, change port to 3001
-port: 3001
+# Edit gulpfile.js, change port to 3001 if 3000 is in use
+
+// BrowserSync server
+function serve() {
+  browserSync.init({
+    server: {
+      baseDir: "./frontend/dist",
+    },
+    port: 3000,
+    open: true,
+  });
+}
+
+# Change to:
+
+port: 3001 / 3002 / etc.
 ```
 
 ### SCSS Not Compiling
@@ -122,6 +155,6 @@ npm install sass@1.58.0 --save-dev
 
 ```bash
 # Restart dev server
-Ctrl+C (stop)
-npm run dev (restart)
+Ctrl+C (stop server)
+npm run dev (restart server)
 ```
